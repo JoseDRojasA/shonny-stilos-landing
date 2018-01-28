@@ -50,7 +50,6 @@ export default {
   },
   methods: {
     onWaypoint({ going, direction }) {
-      console.log('SECCION 2');
       this.$emit('setDarkMenu', going === this.$waypointMap.GOING_IN);
     }
   }
