@@ -16,6 +16,9 @@ body {
   margin: 0;
   overflow-x: hidden;
 }
+html {
+  scroll-behavior: smooth;
+}
 .full-section {
   width: 100vw;
   height: 100vh;

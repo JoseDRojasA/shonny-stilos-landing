@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid">
+  <div id="section-4" class="container-fluid" v-waypoint="{ active: true, callback: onWaypoint}">
     <div class="row">
       <div class="col-sm-12 title-container">
         <p class="title">NUESTRO EQUIPO</p>
@@ -90,12 +90,17 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    onWaypoint({ going, direction }) {
+      this.$emit('setDarkMenu', going === this.$waypointMap.GOING_IN);
+    }
   }
 };
 </script>
 
 <style scoped>
-.container-fluid {
+#section-4 {
   background-color: #141414;
   padding-bottom: 55px;
 }

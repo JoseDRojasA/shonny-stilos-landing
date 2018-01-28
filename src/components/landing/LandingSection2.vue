@@ -1,5 +1,5 @@
 <template>
-  <div class="section-2">
+  <div id="section-2" v-waypoint="{ active: true, callback: onWaypoint}">
     <div class="clock">
       <i class="far fa-clock"></i>
     </div>
@@ -47,11 +47,17 @@ export default {
         }
       ]
     };
+  },
+  methods: {
+    onWaypoint({ going, direction }) {
+      console.log('SECCION 2');
+      this.$emit('setDarkMenu', going === this.$waypointMap.GOING_IN);
+    }
   }
 };
 </script>
 <style scoped>
-.section-2 {
+#section-2 {
   background-color: #232322;
   padding: 60px 0px;
 }

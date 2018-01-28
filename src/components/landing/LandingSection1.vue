@@ -1,5 +1,6 @@
 <template>
-  <div class="full-section">
+  <div id="section-1" class="full-section" v-waypoint="{ active: true, callback: onWaypoint}">
+    <landing-menu :open="open" @closeMenu="open = false"></landing-menu>
     <div class="shadow"></div>
     <nav>
       <table>
@@ -7,8 +8,8 @@
           <td>
             <img class="logo" src="./../../assets/logo_3.png">
           </td>
-          <td>
-            <label>M <i class="fas fa-bars"></i> NU</label>
+          <td v-bind:class="{'darkMenu': darkMenu}">
+            <label v-on:click="open = true" >M <i class="fas fa-bars"></i> NU</label>
           </td>
         </tbody>
       </table>
@@ -28,7 +29,23 @@
 </template>
 
 <script>
-export default {};
+import LandingMenu from './LandingMenu';
+export default {
+  components: {
+    LandingMenu
+  },
+  props: ['darkMenu'],
+  data() {
+    return {
+      open: false
+    };
+  },
+  methods: {
+    onWaypoint({ going, direction }) {
+      this.$emit('setDarkMenu', going === this.$waypointMap.GOING_IN);
+    }
+  }
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -48,20 +65,25 @@ export default {};
 }
 nav {
   text-align: right;
-  position: absolute;
+  position: fixed;
+  z-index: 100;
 }
 nav table {
   width: 100vw;
 }
-nav table td {
-  padding: 30px 30px;
-}
+
 nav table td:first-child {
   text-align: left;
+  padding: 30px 0px 30px 55px;
 }
 nav table td:last-child {
   color: #ffffff;
+  padding: 30px 55px 30px 0px;
   font-weight: bold;
+  font-size: 20px;
+}
+.darkMenu {
+  color: #3b3b3b !important;
 }
 nav table td:last-child label {
   cursor: pointer;

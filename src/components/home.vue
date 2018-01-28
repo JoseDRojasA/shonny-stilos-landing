@@ -1,12 +1,12 @@
 <template>
   <div>
-    <landing-section-1></landing-section-1>
-    <landing-section-2></landing-section-2>
-    <landing-section-3></landing-section-3>
-    <landing-section-4></landing-section-4>
-    <landing-section-5></landing-section-5>
-    <landing-section-6></landing-section-6>
-    <landing-section-7></landing-section-7>
+    <landing-section-1 :darkMenu="darkMenu" @setDarkMenu="checkSections(0, $event)"></landing-section-1>
+    <landing-section-2 @setDarkMenu="checkSections(1, $event)"></landing-section-2>
+    <landing-section-3 @setDarkMenu="checkSections(2, $event)"></landing-section-3>
+    <landing-section-4 @setDarkMenu="checkSections(3, $event)"></landing-section-4>
+    <landing-section-5 @setDarkMenu="checkSections(4, $event)"></landing-section-5>
+    <landing-section-6 @setDarkMenu="checkSections(5, $event)"></landing-section-6>
+    <landing-section-7 @setDarkMenu="checkSections(6, $event)"></landing-section-7>
   </div>
 </template>
 
@@ -30,7 +30,22 @@ export default {
     LandingSection7
   },
   data() {
-    return {};
+    return {
+      darkMenu: false,
+      sections: [false, false, false, false, false, false, false]
+    };
+  },
+  methods: {
+    checkSections(index, value) {
+      this.sections[index] = value;
+      this.darkMenu = false;
+      for (let i = 0; i < this.sections.length; i++) {
+        if (this.sections[i]) {
+          this.darkMenu = i === 2 || i === 4;
+          break;
+        }
+      }
+    }
   }
 };
 </script>
