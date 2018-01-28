@@ -5,10 +5,10 @@
         <label>SIGUENOS EN NUESTRAS REDES SOCIALES</label>
       </div>
       <div class="col-sm-12 social-container">
-        <a href="https://www.facebook.com/shonny.stilos?ref=br_rs">
+        <a href="https://www.facebook.com/shonny.stilos?ref=br_rs" target="_blank">
           <i class="fab fa-facebook-square"></i>
         </a>
-        <a href="https://www.instagram.com/shonnystilos/">
+        <a href="https://www.instagram.com/shonnystilos/" target="_blank">
           <i class="fab fa-instagram"></i>
         </a>
       </div>
