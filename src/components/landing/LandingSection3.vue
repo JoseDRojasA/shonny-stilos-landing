@@ -29,6 +29,9 @@ export default {
 </script>
 
 <style scoped>
+#section-3 {
+  padding: 0px;
+}
 .picture {
   background-image: url('./../../assets/section_3.jpg');
   background-position: center;

@@ -14,13 +14,15 @@ export default {
 @import url('./assets/bootstrap-grid.min.css');
 body {
   margin: 0;
-  overflow-x: hidden;
 }
 html {
   scroll-behavior: smooth;
 }
+.row {
+  margin: 0;
+}
 .full-section {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
 }
 * {

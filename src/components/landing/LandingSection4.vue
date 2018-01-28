@@ -110,7 +110,13 @@ export default {
 .title {
   color: #3b3b3b;
   font-weight: bolder;
-  font-size: 50px;
+  font-size: 35px;
+  margin: 25px 45px 25px 0px;
+}
+@media (min-width: 400px) {
+  .title {
+    font-size: 50px;
+  }
 }
 .hairdresser-card {
   background-position: center;

@@ -43,7 +43,7 @@ export default {
           day: 'DOMINGO',
           notes: '(Cuando el lunes es festivo)',
           open: '7:00 am - 12:00 pm',
-          close: '2:00 pm - 4:00 pm'
+          close: 'No hay atención al publico'
         }
       ]
     };

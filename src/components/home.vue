@@ -1,6 +1,6 @@
 <template>
   <div>
-    <landing-section-1 :darkMenu="darkMenu" @setDarkMenu="checkSections(0, $event)"></landing-section-1>
+    <landing-section-1 :darkMenu="darkMenu" :showIcon="showIcon" @setDarkMenu="checkSections(0, $event)"></landing-section-1>
     <landing-section-2 @setDarkMenu="checkSections(1, $event)"></landing-section-2>
     <landing-section-3 @setDarkMenu="checkSections(2, $event)"></landing-section-3>
     <landing-section-4 @setDarkMenu="checkSections(3, $event)"></landing-section-4>
@@ -32,6 +32,7 @@ export default {
   data() {
     return {
       darkMenu: false,
+      showIcon: true,
       sections: [false, false, false, false, false, false, false]
     };
   },
@@ -42,6 +43,7 @@ export default {
       for (let i = 0; i < this.sections.length; i++) {
         if (this.sections[i]) {
           this.darkMenu = i === 2 || i === 4;
+          this.showIcon = i === 0;
           break;
         }
       }

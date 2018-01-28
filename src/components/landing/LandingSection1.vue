@@ -6,7 +6,7 @@
       <table>
         <tbody>
           <td>
-            <img class="logo" src="./../../assets/logo_3.png">
+            <img v-if="showIcon" class="logo" src="./../../assets/logo_3.png">
           </td>
           <td v-bind:class="{'darkMenu': darkMenu}">
             <label v-on:click="open = true" >M <i class="fas fa-bars"></i> NU</label>
@@ -34,7 +34,7 @@ export default {
   components: {
     LandingMenu
   },
-  props: ['darkMenu'],
+  props: ['darkMenu', 'showIcon'],
   data() {
     return {
       open: false
@@ -59,7 +59,7 @@ export default {
 }
 .shadow {
   position: absolute;
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.6);
 }
@@ -67,9 +67,10 @@ nav {
   text-align: right;
   position: fixed;
   z-index: 100;
+  width: calc(100% - 15px);
 }
 nav table {
-  width: 100vw;
+  width: 100%;
 }
 
 nav table td:first-child {
@@ -78,7 +79,7 @@ nav table td:first-child {
 }
 nav table td:last-child {
   color: #ffffff;
-  padding: 30px 55px 30px 0px;
+  padding: 30px 0px 30px 0px;
   font-weight: bold;
   font-size: 20px;
 }
@@ -87,6 +88,11 @@ nav table td:last-child {
 }
 nav table td:last-child label {
   cursor: pointer;
+}
+@media (min-width: 760px) {
+  nav table td:last-child {
+    padding: 30px 55px 30px 0px;
+  }
 }
 .logo {
   max-width: 100px;
